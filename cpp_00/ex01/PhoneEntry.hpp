@@ -6,7 +6,7 @@
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 23:45:58 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/03 00:28:03 by dmillan          ###   ########.fr       */
+/*   Updated: 2022/11/03 22:16:02 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 class PhoneEntry {
 
 private:
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
+	std::string _first_name;
+	std::string _last_name;
+	std::string _nickname;
+	std::string _phone_number;
+	std::string _darkest_secret;
 
 public:
+	PhoneEntry(void);
+	~PhoneEntry(void);
 
 	std::string get_first_name(void) const;
 	bool		set_first_name(std::string first_name);
@@ -40,6 +42,5 @@ public:
 	bool		set_darkest_secret(std::string darkest_secret);
 
 	std::string	trim_length(std::string info);
-	void		print_summary(int id);
 	void		print_info(void);
 };

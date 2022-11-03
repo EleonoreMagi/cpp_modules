@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 00:18:21 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/03 22:13:26 by dmillan          ###   ########.fr       */
+/*   Created: 2022/11/04 00:28:20 by dmillan           #+#    #+#             */
+/*   Updated: 2022/11/04 00:31:23 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cstring>
-#include <iomanip>
-#include "PhoneEntry.hpp"
+#include "Zombie.hpp"
 
-class PhoneBook
+Zombie*	zombieHorde(int n, std::string name)
 {
-private:
-	PhoneEntry		_phonebook[8];
-	unsigned int	_index;
-	unsigned int	_current;
-public:
-	PhoneBook(void);
-	virtual ~PhoneBook(void);
-
-	void		search_entry(void);
-	void		add_entry(void);
-	void		welcome_prompt(void);
-	void		display_contacts(void);
-};
+	Zombie *horde = new Zombie[n];
+	for (int i = 0; i < n; i++)
+		horde[i].setName(name);
+	return (horde);
+}

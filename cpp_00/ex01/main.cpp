@@ -6,38 +6,34 @@
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 23:54:17 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/03 00:18:52 by dmillan          ###   ########.fr       */
+/*   Updated: 2022/11/03 22:22:00 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstring>
-#include "PhoneBook.cpp"
+#include "PhoneBook.hpp"
 
 int		main(void)
 {
 	std::string	input;
-	PhoneEntry	friends[8];
+	PhoneBook	friends;
 	int		friend_count;
-	int		replacement_count;
 
-	input = welcome_prompt();
+	friends.welcome_prompt();
+	getline(std::cin, input);
 	friend_count = 0;
-	replacement_count = 0;
 	while (input != "EXIT")
 	{
-		if (input == "ADD" && friend_count >= 8)
+		if (input == "ADD")
 		{
-			std::cout << "You can't add any more entries to the phonebook. The oldest entry will be replaced by a new one." << std::endl;
-			friends[replacement_count++] = add_entry();
-			if (replacement_count == 8)
-				replacement_count = 0;
-
+			if (friend_count >= 8)
+				std::cout << "You can't add any more entries to the phonebook. The oldest entry will be replaced by a new one." << std::endl;
+			friends.add_entry();
+			friend_count++;
 		}
-		else if (input == "ADD")
-			friends[friend_count++] = add_entry();
 		else if (input == "SEARCH" && friend_count > 0)
-			search_entry(friends, friend_count);
+			friends.search_entry();
 		else if (input == "SEARCH")
 			std::cout << "No entries in the phonebook. Add some first." << std::endl;
 		else

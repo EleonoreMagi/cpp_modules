@@ -6,7 +6,7 @@
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 23:54:22 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/03 00:28:35 by dmillan          ###   ########.fr       */
+/*   Updated: 2022/11/03 22:29:33 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,63 @@
 
 PhoneBook::PhoneBook()
 {
-	this->amount = 0;
+	this->_index = 0;
+	this->_current = 0;
 }
 
 PhoneBook::~PhoneBook()
 {
 }
 
-void	search_entry(PhoneEntry phonebook[8], int entry_count)
+std::string	resize(std::string content)
 {
-	int		id;
+	if (content.length() > 10)
+	{
+		content.erase(content.begin() + 9, content.end());
+		content.append(".");
+	}
+	return (content);
+}
 
+void	PhoneBook::display_contacts()
+{
 	std::cout << "Displaying the phonebook..." << std::endl;
-	for (int i = 0; i < entry_count; i++)
-		(phonebook[i]).print_summary(i + 1);
-	std::cout << "Which contact do you want to see? ";
-	while (!(std::cin >> id) || id < 1 || id > entry_count)
+	std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|\n";
+	for (int i = 0; i < (int)this->_index; i++)
+	{
+		std::cout
+		<< "|" << std::setw(10) << i + 1
+		<< "|" << std::setw(10) << resize(_phonebook[i].get_first_name())
+		<< "|" << std::setw(10) << resize(_phonebook[i].get_last_name())
+		<< "|" << std::setw(10) << resize(_phonebook[i].get_nickname()) << "|"
+		<< std::endl;
+	}
+}
+
+void	PhoneBook::search_entry()
+{
+	unsigned int id;
+	
+	std::cout << "Displaying the phonebook..." << std::endl;
+	display_contacts();
+	std::cout << "Which contact do you want to see? " << std::endl;
+	std::cout << "Enter The index: ";
+	while (!(std::cin >> id) || id < 1 || id > this->_index)
 	{
 		std::cout << "Wrong input, please select an existing id: ";
 		std::cin.clear();
 		std::cin.ignore(10000,'\n');
 	}
-	phonebook[id - 1].print_info();
+	std::cout << "First Name: " << this->_phonebook[id - 1].get_first_name() << std::endl;
+	std::cout << "Last Name: " << this->_phonebook[id - 1].get_last_name() << std::endl;
+	std::cout << "NickeName: " << this->_phonebook[id - 1].get_nickname() << std::endl;
+	std::cout << "Phone Number: " << this->_phonebook[id - 1].get_phone_number() << std::endl;
+	std::cout << "Darkest Secret: " << this->_phonebook[id - 1].get_darkest_secret() << std::endl;
 	std::cin.clear();
 	std::cin.ignore(10000,'\n');
 }
 
-PhoneEntry	add_entry()
+void	PhoneBook::add_entry()
 {
 	PhoneEntry		new_friend;
 	std::string	tmp;
@@ -64,17 +94,17 @@ PhoneEntry	add_entry()
 	std::cout << "Darkest secret: ";
 	getline(std::cin, tmp);
 	new_friend.set_darkest_secret(tmp);
-	return (new_friend);
+	this->_phonebook[_current % 8] = new_friend;
+	this->_current++;
+	if (this->_current <= 8)
+		this->_index = this->_current;
 }
 
-std::string	welcome_prompt()
+void	PhoneBook::welcome_prompt()
 {
-	std::string	input;
-
 	std::cout << "Welcome to your personal phonebook." << std::endl
-		<< "Use SEARCH to browse your contacts, ADD to add one, "
-		<< "and EXIT to close the phonebook" << std::endl
+		<< "Use SEARCH to browse your contacts, " << std::endl
+		<< "ADD to add one, " << std::endl
+		<< "and EXIT to close the phonebook. " << std::endl
 		<< "How can I help you? ";
-	getline(std::cin, input);
-	return (input);
 }

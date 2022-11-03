@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 00:18:21 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/03 22:13:26 by dmillan          ###   ########.fr       */
+/*   Created: 2022/11/03 23:39:17 by dmillan           #+#    #+#             */
+/*   Updated: 2022/11/04 00:11:16 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cstring>
-#include <iomanip>
-#include "PhoneEntry.hpp"
+#include "Zombie.hpp"
 
-class PhoneBook
+Zombie* newZombie( std::string name )
 {
-private:
-	PhoneEntry		_phonebook[8];
-	unsigned int	_index;
-	unsigned int	_current;
-public:
-	PhoneBook(void);
-	virtual ~PhoneBook(void);
-
-	void		search_entry(void);
-	void		add_entry(void);
-	void		welcome_prompt(void);
-	void		display_contacts(void);
-};
+	return (new Zombie(name));
+}

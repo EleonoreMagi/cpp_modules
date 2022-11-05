@@ -6,13 +6,13 @@
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 23:35:58 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/04 00:31:25 by dmillan          ###   ########.fr       */
+/*   Updated: 2022/11/04 21:20:59 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(/* args */)
+Zombie::Zombie()
 {
 	this->_name = "(no_name)";
 	std::cout << _name << " was created" << std::endl; 
@@ -37,4 +37,9 @@ void	Zombie::announce()
 void	Zombie::setName(std::string name)
 {
 	this->_name = name;
+}
+
+std::string	Zombie::getName(void)
+{
+	return this->_name;
 }

@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 23:35:39 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/04 21:25:02 by dmillan          ###   ########.fr       */
+/*   Created: 2022/11/05 03:38:55 by dmillan           #+#    #+#             */
+/*   Updated: 2022/11/05 04:11:51 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef DIAMONDTRAP_H
+#define DIAMONDTRAP_H
 
-#include <iostream>
-#include <string>
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class Zombie
+class DiamondTrap : public ScavTrap, public FragTrap
 {
-public:
-	Zombie(void);
-	Zombie(std::string name);
-	~Zombie(void);
-	void 		announce(void);
-	void		setName(std::string name);
-	std::string	getName(void);
 private:
-	std::string _name;
+    std::string _name;
+
+public:
+    DiamondTrap();
+    DiamondTrap(const std::string& name);
+    DiamondTrap(const DiamondTrap& a);
+    virtual ~DiamondTrap();
+
+    DiamondTrap& operator=(const DiamondTrap& a);
+
+    using ScavTrap::attack;
+    void whoAmI();
 };
-
-
-Zombie*	newZombie( std::string name );
-void	randomChump( std::string name );
-Zombie* zombieHorde( int N, std::string name );
-
 
 #endif

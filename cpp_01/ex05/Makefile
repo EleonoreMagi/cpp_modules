@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/04 00:25:46 by dmillan           #+#    #+#              #
-#    Updated: 2022/11/04 21:20:16 by dmillan          ###   ########.fr        #
+#    Created: 2022/11/04 22:15:13 by dmillan           #+#    #+#              #
+#    Updated: 2022/11/04 22:55:35 by dmillan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp Zombie.cpp ZombieHorde.cpp
+SRC = main.cpp Harl.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 RM = rm -f
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-NAME = zombie
+NAME = complain
 
 all: $(NAME)
 

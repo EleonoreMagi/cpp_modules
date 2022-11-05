@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/04 00:25:46 by dmillan           #+#    #+#              #
-#    Updated: 2022/11/04 21:20:16 by dmillan          ###   ########.fr        #
+#    Created: 2022/11/05 01:33:58 by dmillan           #+#    #+#              #
+#    Updated: 2022/11/05 01:49:25 by dmillan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp Zombie.cpp ZombieHorde.cpp
+SRC = main.cpp Fixed.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = zombie
+NAME = fixed_op
 
 all: $(NAME)
 

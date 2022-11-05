@@ -5,22 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 00:30:11 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/04 21:28:48 by dmillan          ###   ########.fr       */
+/*   Created: 2022/11/04 21:32:04 by dmillan           #+#    #+#             */
+/*   Updated: 2022/11/04 21:41:21 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-int	main(void)
+int	main()
 {
-	int	size;
+	std::string	string = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &string;
+	std::string& stringREF = string;
 
-	size = 20;
-	Zombie *horde = zombieHorde(size, "Bob");
-	for (int i = 0; i < size; i++)
-		horde[i].announce();
-	
-	delete [] horde;
-	return	(0);
+	std::cout << "Address of:" << std::endl
+		<< "- string: " << &string << std::endl
+		<< "- stringPTR: " << stringPTR << std::endl
+		<< "- stringREF: " << &stringREF << std::endl;
+
+	std::cout << std::endl << "Value:" << std::endl
+		<< "- of the string: " << string << std::endl
+		<< "- pointed to by stringPTR: " << *stringPTR << std::endl
+		<< "- pointed to by stringREF: " << stringREF << std::endl;
+
+	return (0);
 }

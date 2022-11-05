@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/04 00:25:46 by dmillan           #+#    #+#              #
-#    Updated: 2022/11/04 21:20:16 by dmillan          ###   ########.fr        #
+#    Created: 2022/11/05 02:01:44 by dmillan           #+#    #+#              #
+#    Updated: 2022/11/05 02:15:49 by dmillan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp Zombie.cpp ZombieHorde.cpp
+SRC = main.cpp ClapTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = zombie
+NAME = claptrap
 
 all: $(NAME)
 

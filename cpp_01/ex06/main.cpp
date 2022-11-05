@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 00:28:20 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/04 21:27:45 by dmillan          ###   ########.fr       */
+/*   Created: 2022/11/04 22:53:10 by dmillan           #+#    #+#             */
+/*   Updated: 2022/11/04 23:04:23 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-Zombie*	zombieHorde(int N, std::string name)
+int	main(int ac, char *av[])
 {
-	Zombie *horde = new Zombie[N];
-	for (int i = 0; i < N; i++)
-		horde[i].setName(name);
-	return (horde);
+	if (ac == 2)
+	{
+		Harl	harl;
+		harl.complain(av[1]);
+	}
+	else if (ac != 2)
+	{
+		std::cout << "Wrong input. Please write a command like this: ./harlFilter <complain_level>" << std::endl;
+		return (1);
+	}
+
+	return (0);
 }

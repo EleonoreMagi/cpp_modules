@@ -5,30 +5,39 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/05 02:01:44 by dmillan           #+#    #+#              #
-#    Updated: 2022/11/05 13:24:44 by dmillan          ###   ########.fr        #
+#    Created: 2022/11/05 19:11:35 by dmillan           #+#    #+#              #
+#    Updated: 2022/11/05 19:20:43 by dmillan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
-OBJ = $(SRC:.cpp=.o)
-CC = c++
-RM = rm -f
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+SRCS	=	main.cpp\
+			AMateria.cpp\
+			Character.cpp\
+			Ice.cpp\
+			Cure.cpp\
+			MateriaSource.cpp
 
-NAME = animal
+OBJS	= $(SRCS:.cpp=.o)
+CXX		= c++
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+RM		= rm -f
 
-all: $(NAME)
+NAME = Interface
 
-$(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+all		:	$(NAME)
 
-clean:
-	$(RM) $(OBJ)
+$(NAME)	:	$(OBJS)
+			$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-fclean: clean
-	$(RM) $(NAME)
+debug	:
+		$(CXX) $(CXXFLAGS) -fsanitize=address -std=c++98 -Wshadow $(SRCS) -o $(NAME)
 
-re: fclean $(NAME)
+clean	:
+			$(RM) $(OBJS)
 
-.PHONY: all clean fclean re
+fclean	:
+			$(RM) $(NAME) $(OBJS)
+
+re		: fclean all
+
+.PHONY	: all clean fclean re

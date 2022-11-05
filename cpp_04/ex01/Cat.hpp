@@ -6,7 +6,7 @@
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 04:44:51 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/05 18:30:28 by dmillan          ###   ########.fr       */
+/*   Updated: 2022/11/05 18:51:32 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 #define CAT_H
 
 #include "Animal.hpp"
+#include "Brain.hpp"
+#include <cstdlib>
 
 class Cat : public Animal
 {
+private:
+    Brain* _brain;
+
 public:
     Cat(void);
     Cat(const Cat& a);
@@ -24,7 +29,11 @@ public:
 
     Cat& operator=(const Cat& a);
 
-    virtual void makeSound(void) const;
+
+    const std::string& getBrainIdeas(int index) const;
+    void setBrainIdeas(int index, const std::string& str) const;
+
+    virtual void makeSound() const;
 };
 
 #endif

@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 04:44:51 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/05 18:30:28 by dmillan          ###   ########.fr       */
+/*   Created: 2022/11/05 19:14:01 by dmillan           #+#    #+#             */
+/*   Updated: 2022/11/05 19:14:03 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-#define CAT_H
+#ifndef CURE_H
+#define CURE_H
 
-#include "Animal.hpp"
+#include <iostream>
+#include <string>
+#include "AMateria.hpp"
 
-class Cat : public Animal
+class Cure : public AMateria
 {
+protected:
+    std::string type;
+
 public:
-    Cat(void);
-    Cat(const Cat& a);
-    virtual ~Cat(void);
+    Cure();
+    Cure(std::string const & type);
+    Cure(const Cure& a);
+    virtual ~Cure();
 
-    Cat& operator=(const Cat& a);
+    virtual Cure& operator=(const Cure&);
 
-    virtual void makeSound(void) const;
+    virtual AMateria* clone() const;
+    virtual void use(ICharacter& target);
 };
 
 #endif

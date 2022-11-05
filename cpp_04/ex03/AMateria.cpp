@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   AMAteria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 04:46:12 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/05 18:30:28 by dmillan          ###   ########.fr       */
+/*   Created: 2022/11/05 19:12:13 by dmillan           #+#    #+#             */
+/*   Updated: 2022/11/05 19:17:53 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "AMateria.hpp"
 
-Cat::Cat(void)
-{
-    _type = "Cat";
-    std::cout << "Cat created with a default constructor." << std::endl;
-}
+AMateria::AMateria() {}
 
-Cat::Cat(const Cat& a)
+AMateria::AMateria(std::string const & type) : type(type) {}
+
+AMateria::AMateria(const AMateria& a)
 {
-    std::cout << "Cat copied." << std::endl;
     *this = a;
 }
 
-Cat::~Cat(void)
-{
-    std::cout << "Cat destroyed." << std::endl;
-}
+AMateria::~AMateria() {}
 
-Cat& Cat::operator=(const Cat& a)
+AMateria& AMateria::operator=(const AMateria&)
 {
-    _type = a.getType();
+    type = "";
     return *this;
 }
 
-void Cat::makeSound(void) const
+std::string const & AMateria::getType() const
 {
-    std::cout << "Cat makes a sound of nyaaaaaaaaaa!!" << std::endl;
+    return type;
 }
 
+void AMateria::use(ICharacter& target)
+{
+    std::cout << "There was nothing "<< target.getName() << \
+                 " could do." << std::endl;
+}

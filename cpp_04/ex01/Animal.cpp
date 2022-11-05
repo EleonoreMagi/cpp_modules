@@ -6,7 +6,7 @@
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 04:43:16 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/05 18:30:28 by dmillan          ###   ########.fr       */
+/*   Updated: 2022/11/05 18:39:14 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Animal::Animal(void)
 {
-    std::cout << "Animal reated with a default constructor." << std::endl;
+    std::cout << "Animal created with a default constructor." << std::endl;
 }
 
 Animal::Animal(const Animal& a)
@@ -37,7 +37,7 @@ Animal& Animal::operator=(const Animal& a)
 
 const std::string& Animal::getType(void) const
 {
-    return _type;
+    return (this->_type);
 }
 
 void Animal::makeSound(void) const

@@ -6,10 +6,11 @@
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 04:44:51 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/05 04:51:12 by dmillan          ###   ########.fr       */
+/*   Updated: 2022/11/05 18:30:28 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DOG_H
 #define DOG_H
 
 #include "Animal.hpp"
@@ -17,13 +18,13 @@
 class Dog : public Animal
 {
 public:
-    Dog();
+    Dog(void);
     Dog(const Dog& a);
-    virtual ~Dog();
+    virtual ~Dog(void);
 
     Dog& operator=(const Dog& a);
 
-    virtual void makeSound() const;
+    virtual void makeSound(void) const;
 };
 
 #endif

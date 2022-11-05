@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 13:02:20 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/05 13:24:46 by dmillan          ###   ########.fr       */
+/*   Created: 2022/11/05 04:43:00 by dmillan           #+#    #+#             */
+/*   Updated: 2022/11/05 19:07:45 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_H
-#define WRONGANIMAL_H
+#ifndef ANIMAL_H
+#define ANIMAL_H
 
 #include <iostream>
 #include <string>
+#include "Brain.hpp"
 
-class WrongAnimal
+class Animal
 {
 protected:
     std::string _type;
 
 public:
-    WrongAnimal(void);
-    WrongAnimal(const WrongAnimal& a);
-    virtual ~WrongAnimal(void);
+    Animal();
+    Animal(const Animal& a);
+    virtual ~Animal();
 
-    WrongAnimal& operator=(const WrongAnimal& a);
+    Animal& operator=(const Animal& a);
 
-    const std::string& getType(void) const;
+    const std::string&      getType() const;
+    const std::string&      getBrainIdeas(int index) const;
+    void                    setBrainIdeas(int index, const std::string& str) const;
 
-    void makeSound(void) const;
+    virtual void makeSound() const = 0;
 };
 
 #endif

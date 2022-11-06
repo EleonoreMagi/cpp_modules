@@ -6,12 +6,12 @@
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 02:09:24 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/06 02:13:38 by dmillan          ###   ########.fr       */
+/*   Updated: 2022/11/07 00:07:46 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_H
-#define SHRUBBERYCREATIONFORM_H
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 #include <fstream>
 #include "Form.hpp"

@@ -6,12 +6,12 @@
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 22:08:25 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/06 01:13:20 by dmillan          ###   ########.fr       */
+/*   Updated: 2022/11/07 00:10:14 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_H
-#define BUREAUCRAT_H
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <string>
@@ -22,25 +22,26 @@ class Form;
 class Bureaucrat
 {
 private:
-    std::string const	_name;
-    int                 _grade;
+    const std::string  _name;
+    int                _grade;
 
 public:
-    Bureaucrat(void);
-    Bureaucrat(std::string const &name, int grade);
-    Bureaucrat(std::string const & name);
-    Bureaucrat(int grade);
-    Bureaucrat(const Bureaucrat& b);
-    virtual ~Bureaucrat(void);
+    Bureaucrat();
+    explicit Bureaucrat(std::string const & name);
+    explicit Bureaucrat(int grade);
+    Bureaucrat(std::string const & name, int grade);
+    Bureaucrat(const Bureaucrat& a);
+    ~Bureaucrat();
 
-    Bureaucrat const    &operator=(Bureaucrat const &b);
+    Bureaucrat& operator=(const Bureaucrat& a);
 
-    std::string const   &getName(void) const;
-    int const           &getGrade(void) const;
+    const std::string& getName() const;
+    int getGrade() const;
 
-    void    incrementGrade();
-    void    decrementGrade();
-	void 	signForm(Form& form) const;
+    void incrementGrade();
+    void decrementGrade();
+    void signForm(Form& f) const;
+    void executeForm(const Form& form) const;
 
     class GradeTooHighException : public std::exception
     {
@@ -63,6 +64,6 @@ public:
     };
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat &b);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat &a);
 
 #endif

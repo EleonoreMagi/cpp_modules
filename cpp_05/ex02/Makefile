@@ -1,18 +1,6 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/05 22:02:42 by dmillan           #+#    #+#              #
-#    Updated: 2022/11/06 01:38:38 by dmillan          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME =	form_version
 
-NAME =	form
-
-SRC =	main.cpp Bureaucrat.cpp Form.cpp
+SRC =	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJ = 	$(SRC:.cpp=.o)
 CC 	= 	c++
 CCFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic

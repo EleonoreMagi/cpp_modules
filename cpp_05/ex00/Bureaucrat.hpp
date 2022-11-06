@@ -6,12 +6,12 @@
 /*   By: dmillan <dmillan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 22:08:25 by dmillan           #+#    #+#             */
-/*   Updated: 2022/11/05 23:59:22 by dmillan          ###   ########.fr       */
+/*   Updated: 2022/11/06 23:24:04 by dmillan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-#define ANIMAL_H
+#ifndef BUREAUCRAT_H
+#define BUREAUCRAT_H
 
 #include <iostream>
 #include <string>
